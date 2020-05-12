@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-        <report id="action_hr_timesheet_karty" 
-            string="Time sheet report" 
-            model="hr.analytic.timesheet" 
-            report_type="qweb-pdf" 
-            name="hr_timesheet_karty.template_hr_timesheet_karty" 
+        <report id="action_hr_timesheet_karty"
+                string="Time sheet report"
+                model="hr.analytic.timesheet"
+                report_type="qweb-pdf"
+                name="hr_timesheet_karty.template_hr_timesheet_karty"
+                menu="False"
         />
 
-        <template id="template_hr_timesheet_karty">
-            <t t-call="report.html_container">
-                <t t-call="report.external_layout">
+        <report id="action_hr_timesheet_karty_tree"
+                string="Time sheet report"
+                model="hr.analytic.timesheet"
+                report_type="qweb-pdf"
+                name="hr_timesheet_karty.template_hr_timesheet_karty_tree"
+        />
+
+        <template id="hr_timesheet_karty_document">
+            <t t-call="report.external_layout">
                     <div class="page">
 
                         <table class="table table-condensed">
@@ -23,16 +30,35 @@
                             </thead>
                             <tbody>
                                 <tr t-foreach="docs" t-as="o">
-                                    <td><span t-field="o.user_id.name"/></td>
-                                    <td><span t-field="o.date"/></td>
-                                    <td class="text-right"><span t-field="o.unit_amount"/> h</td>
+                                    <td>
+                                        <span t-field="o.user_id.name"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="o.date"/>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-field="o.unit_amount"/>
+                                        h
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
 
                     </div>
                 </t>
+        </template>
+
+        <template id="template_hr_timesheet_karty">
+            <t t-call="report.html_container">
+                <t t-raw="translate_doc(doc_id, doc_model, 'user_id.lang', 'hr_timesheet_karty.hr_timesheet_karty_document')"/>
             </t>
         </template>
+
+        <template id="template_hr_timesheet_karty_tree">
+            <t t-call="report.html_container">
+                <t t-raw="translate_doc(doc_id, doc_model, 'user_id.lang', 'hr_timesheet_karty.hr_timesheet_karty_document')"/>
+            </t>
+        </template>
+
     </data>
 </openerp>
