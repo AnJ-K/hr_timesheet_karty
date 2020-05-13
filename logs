@@ -1,0 +1,14 @@
+2020-05-13 08:03:27,102 5660 INFO ? werkzeug: 127.0.0.1 - - [13/May/2020 08:03:27] "GET /web/static/src/img/ui/field_calendar.png HTTP/1.1" 200 -
+2020-05-13 08:03:29,000 4844 INFO amiERP88 werkzeug: 127.0.0.1 - - [13/May/2020 08:03:29] "POST /web/dataset/call_kw/hr.employee/name_search HTTP/1.1" 200 -
+2020-05-13 08:03:29,004 5094 INFO amiERP88 werkzeug: 127.0.0.1 - - [13/May/2020 08:03:29] "POST /web/dataset/search_read HTTP/1.1" 200 -
+2020-05-13 08:03:29,039 4660 INFO amiERP88 werkzeug: 127.0.0.1 - - [13/May/2020 08:03:29] "POST /web/dataset/call_kw/hr.employee/check_access_rights HTTP/1.1" 200 -
+2020-05-13 08:03:29,340 4540 INFO amiERP88 werkzeug: 127.0.0.1 - - [13/May/2020 08:03:29] "POST /web/dataset/call_kw/hr.employee/name_search HTTP/1.1" 200 -
+2020-05-13 08:03:29,345 4540 INFO amiERP88 werkzeug: 127.0.0.1 - - [13/May/2020 08:03:29] "POST /web/dataset/search_read HTTP/1.1" 200 -
+2020-05-13 08:03:29,377 4720 INFO amiERP88 werkzeug: 127.0.0.1 - - [13/May/2020 08:03:29] "POST /web/dataset/call_kw/hr.employee/check_access_rights HTTP/1.1" 200 -
+2020-05-13 08:03:33,613 5094 INFO amiERP88 werkzeug: 127.0.0.1 - - [13/May/2020 08:03:33] "POST /web/dataset/call_kw/hr.timesheet.karty.wizard/create HTTP/1.1" 200 -
+2020-05-13 08:03:33,672 5094 INFO amiERP88 werkzeug: 127.0.0.1 - - [13/May/2020 08:03:33] "POST /web/dataset/call_kw/hr.timesheet.karty.wizard/search_read HTTP/1.1" 200 -
+2020-05-13 08:03:33,722 5094 INFO amiERP88 werkzeug: 127.0.0.1 - - [13/May/2020 08:03:33] "POST /web/dataset/call_button HTTP/1.1" 200 -
+2020-05-13 08:03:33,799 5094 INFO amiERP88 werkzeug: 127.0.0.1 - - [13/May/2020 08:03:33] "POST /report/check_wkhtmltopdf HTTP/1.1" 200 -
+2020-05-13 08:03:33,802 5660 INFO amiERP88 werkzeug: 127.0.0.1 - - [13/May/2020 08:03:33] "POST /web/menu/load_needaction HTTP/1.1" 200 -
+2020-05-13 08:03:33,899 4720 INFO amiERP88 werkzeug: 127.0.0.1 - - [13/May/2020 08:03:33] "GET /report/preview?data=%5B%22%2Freport%2Fpdf%2Fhr_timesheet_karty.template_hr_timesheet_karty%3Foptions%3D%257B%2522wizard_id%2522%253A1%257D%26context%3D%257B%2522lang%2522%253A%2522en_US%2522%252C%2522tz%2522%253A%2522Europe%252FWarsaw%2522%252C%2522uid%2522%253A142%252C%2522params%2522%253A%257B%2522action%2522%253A843%257D%252C%2522active_model%2522%253A%2522hr.timesheet.karty.wizard%2522%252C%2522active_id%2522%253A1%252C%2522active_ids%2522%253A%255B1%255D%252C%2522search_disable_custom_filters%2522%253Atrue%257D%22%2C%22qweb-pdf%22%5D&token=1589357013782 HTTP/1.1" 400 -
+2020-05-13 08:03:47,490 4661 INFO amiERP88 werkzeug: 127.0.0.1 - - [13/May/2020 08:03:47] "GET /web HTTP/1.1" 200 -
