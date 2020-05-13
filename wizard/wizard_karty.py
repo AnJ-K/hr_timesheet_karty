@@ -5,7 +5,7 @@ from datetime import datetime
 class hr_timesheet_karty_wizard(models.TransientModel):
     _name = 'hr.timesheet.karty.wizard'
 
-    employee_id = fields.Many2one(comodel_name="hr.employee", required=True)
+    user_id = fields.Many2one(comodel_name="res.users", required=True)
     date_from = fields.Date(default=fields.Datetime.now, required=True)
     date_to = fields.Date(default=fields.Datetime.now, required=True)
 
@@ -25,7 +25,7 @@ class HrTimesheetKartyReport(models.AbstractModel):
         if data and 'wizard_id' in data:
             wizard = self.env['hr.timesheet.karty.wizard'].browse(
                 data['wizard_id'])
-            records = hr_analytic_timesheet.search([('employee_id', '=', wizard.employee_id.id),
+            records = hr_analytic_timesheet.search([('user_id', '=', wizard.user_id.id),
                                                     ('date_from', '>=', wizard.date_from),
                                                     ('date_to', '<=', wizard.date_to)])
         else:

@@ -8,7 +8,7 @@
         <field name="arch" type="xml">
         <form string="Time sheet report">
             <group>
-                <field name="employee_id"/>
+                <field name="user_id"/>
                 <field name="date_from"/>
                 <field name="date_to"/>
             </group>
