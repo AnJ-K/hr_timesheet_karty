@@ -12,7 +12,8 @@ class hr_timesheet_karty_wizard(models.TransientModel):
     @api.multi
     def print_report(self):
         self.ensure_one()
-        return self.env['report'].get_action(self, 'hr_timesheet_karty.template_hr_timesheet_karty')
+        datas = {'wizard_id': self.id}
+        return self.env['report'].get_action(self, 'hr_timesheet_karty.template_hr_timesheet_karty', data=datas)
 
 
 class HrTimesheetKartyReport(models.AbstractModel):
@@ -20,10 +21,15 @@ class HrTimesheetKartyReport(models.AbstractModel):
 
     @api.multi
     def render_html(self, data=None):
-        wizard = self.env['hr.timesheet.karty.wizard'].browse(self._ids[0])
-        records = self.env['hr.analytic.timesheet'].search([('employee_id', '=', wizard.employee_id.id),
-                                                            ('date_from', '>=', wizard.date_from),
-                                                            ('date_to', '<=', wizard.date_to)])
+        hr_analytic_timesheet = self.env['hr.analytic.timesheet']
+        if data and 'wizard_id' in data:
+            wizard = self.env['hr.timesheet.karty.wizard'].browse(
+                data['wizard_id'])
+            records = hr_analytic_timesheet.search([('employee_id', '=', wizard.employee_id.id),
+                                                    ('date_from', '>=', wizard.date_from),
+                                                    ('date_to', '<=', wizard.date_to)])
+        else:
+            records = hr_analytic_timesheet.browse(self._ids)
         # sum records hours if date is the same (group by date)
 
         report_obj = self.env['report']
