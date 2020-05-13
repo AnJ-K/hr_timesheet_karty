@@ -26,11 +26,17 @@ class HrTimesheetKartyReport(models.AbstractModel):
             wizard = self.env['hr.timesheet.karty.wizard'].browse(
                 data['wizard_id'])
             records = hr_analytic_timesheet.search([('user_id', '=', wizard.user_id.id),
-                                                    ('date_from', '>=', wizard.date_from),
-                                                    ('date_to', '<=', wizard.date_to)])
+                                                    ('date', '>=', wizard.date_from),
+                                                    ('date', '<=', wizard.date_to)]) 
+            # records = hr_analytic_timesheet.read_group([('user_id', '=', wizard.user_id.id),
+            #                                         ('date', '>=', wizard.date_from),
+            #                                         ('date', '<=', wizard.date_to)],
+            #                                         ['user_id','date','unit_amount'],
+            #                                         ['date:day'])  
+                                             
         else:
             records = hr_analytic_timesheet.browse(self._ids)
-        # sum records hours if date is the same (group by date)
+
 
         report_obj = self.env['report']
         report = report_obj._get_report_from_name(
